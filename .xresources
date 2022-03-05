@@ -1,0 +1,7 @@
+xterm*background: black
+xterm*foreground: white
+
+xterm*faceName: monospace
+xterm*faceSize: 12
+
+Xcursor.theme: Adwaita
