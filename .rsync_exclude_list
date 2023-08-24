@@ -1,0 +1,45 @@
+# .rsync_exclude_list
+# -------------------
+# fuck rsync's '--exclude' not recognizing the pattern provided
+# -------------------
+# root is /home/$USER
+
+vmware
+Games
+Desktop
+Downloads
+Mount
+News
+School
+Videos/Captures
+.android
+.cache
+.config/discord
+.config/discordcanary
+.config/Signal
+.emacs.d
+.local/bin/.discordcanary
+.local/bin/.primehack/build/Binaries/User/Cache/Shaders
+.local/bin/.primehack/build/Binaries/User/Dump
+.local/bin/.primehack/build/Binaries/User/Load
+.local/bin/.primehack/build/Binaries/User/Logs
+.local/include
+.local/lib
+.local/share/applications
+.local/share/nvim/undo
+.local/share/vifm
+.local/share/Steam
+.local/share/Trash
+.local/share/vulkan
+.local/share/xorg
+.local/share/zathura
+.local/state
+.npm
+.steampath
+.steampid
+.steam
+.tmp
+.wine
+.SteamGames
+.VirtualBox
+.VirtualMachines

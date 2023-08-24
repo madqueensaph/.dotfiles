@@ -1,0 +1,12 @@
+*.background: black
+*.foreground: white
+
+xterm.faceName: monospace
+xterm.faceSize: 11
+
+Xcursor.theme: Adwaita
+
+URxvt.scrollBar: false
+URxvt.font: xft:Monospace:size=11
+URxvt.depth: 32
+URxvt.background: rgba:0000/0000/0000/d8d8

@@ -1,0 +1,37 @@
+emaint -a sync
+
+emerge -uDN @world
+
+emerge @golang-rebuild
+
+haskell-updater
+
+emerge @preserved-rebuild
+
+dispatch-conf
+
+eselect kernel set <LATEST>
+
+cd /usr/src/linux
+
+genkernel --kernel-config=/etc/kernels/kernel-config-$(uname -r) all
+
+make modules_prepare
+
+emerge @module-rebuild
+
+sed -i 's/<OLD-KERNEL-NUM>/<NEW-KERNEL-NUM>/g' /boot/loader/entries/gentoo.conf
+
+reboot
+
+emerge --deselect gentoo-sources:<previous>
+
+emerge --depclean
+
+eclean-dist
+
+eclean-pkg
+
+eclean-kernel -n 1
+
+esteam

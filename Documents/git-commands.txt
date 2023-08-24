@@ -1,0 +1,45 @@
+# initialize repo
+# initialize bare repo
+git init
+git init --bare <PATH>
+
+# add files
+git add <FILE>
+
+# commit changes
+# commit changes and specify commit message on command-line
+git commit
+git commit -m "<MESSAGE>"
+
+# set branch
+git branch -m latest
+
+# connect remote repo
+git remote add origin git@github.com:<USER>/<PROJECT>.git
+
+# push changes and set upstream (default) branch
+# push changes to specific branch
+# push changes to upstream branch
+git push -u origin <BRANCH>
+git push origin <BRANCH>
+git push
+
+# create new branch and switch to it
+# switch branch
+# delete branch
+git checkout -b <BRANCH>
+git checkout <BRANCH>
+git branch -d <BRANCH>
+
+# update local repository
+# merge repos (with conflicting)
+git pull
+git merge
+
+# replace local changes to file
+# drop local changes/commits
+git checkout -- <FILE>
+git fetch origin && git reset --hard origin/master
+
+# hide untracked files
+git config --local status.showUntrackedFiles no

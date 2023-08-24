@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -o errexit
+
+cd "$HOME"/Downloads
+
+wget "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz"\
+    -O DiscordCanary.tar.gz
+
+tar -xf ./DiscordCanary.tar.gz
+
+cp -r ./DiscordCanary/* "$HOME"/.local/bin/.discordcanary/
+
+wget 'https://github.com/GooseMod/OpenAsar/releases/download/nightly/app.asar'
+
+cp ./app.asar "$HOME"/.local/bin/.discordcanary/resources/app.asar
+
+rm -r ./DiscordCanary ./DiscordCanary.tar.gz ./app.asar

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#
+# "suspend"
+# ---------
+# locks, sleeps, then suspends
+
+# doing so i can not be forced prompt for password
+sudo echo
+
+LOCK_PROMPT=$(echo -e "\n$(uname -nr)\n${USER}")
+physlock -p "$LOCK_PROMPT" &
+
+sleep 1
+
+sudo systemctl suspend

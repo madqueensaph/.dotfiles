@@ -1,0 +1,18 @@
+# network-specific, port-specific firewall rule
+ufw allow from IPV4_ADDRESS/24 proto tcp to any port PORT
+
+# ip-specific, port-specific firewall rule
+ufw allow from IPV4_ADDRESS proto tcp to any port PORT
+
+# follow docker output
+docker logs --follow CONTAINER_NAME
+
+# attach to docker shell, use Ctrl+P, Ctrl+Q
+docker attach CONTAINER_NAME
+
+# reload SD card reader modules
+sudo modprobe -r rtsx_pci_sdmmc rtsx_pci && sudo modprobe rtsx_pci
+
+# create a null sink, which can be set up to (for example) split audio between
+# the output device and a capture stream in OBS
+pactl load-module module-null-sink sink_name=SINK_NAME
