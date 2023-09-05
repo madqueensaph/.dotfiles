@@ -43,3 +43,11 @@ git fetch origin && git reset --hard origin/master
 
 # hide untracked files
 git config --local status.showUntrackedFiles no
+
+# apply patch file changes to repo
+# apply patch file changes to repo with version differences (may not work)
+git apply <FILE>
+git apply -3 <FILE>
+
+# change remote URL for "git push" command
+git remote set-url --push origin <URL>

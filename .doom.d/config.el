@@ -75,6 +75,9 @@
 (add-hook 'vterm-mode-hook 'remove-column-hook)
 (add-hook 'org-mode-hook 'remove-column-hook)
 
+;; add line wrapping to C modes
+(add-hook 'c-mode-common-hook 'visual-line-mode)
+
 ;; make PDF files open in Zathura by default
 (add-hook 'org-mode-hook
           #'(lambda ()  ; the "#'" was to fix an error

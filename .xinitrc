@@ -36,9 +36,6 @@ xrandr --output eDP --primary
 # load X resource properties into the X resource database
 xrdb "${HOME}"/.xresources
 
-# load keyring daemon to handle cryptography stuff
-eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
-
 # load compositor for (customizably) fancy effects
 picom --config "${HOME}/.config/picom/picom.conf" &
 
@@ -57,6 +54,9 @@ pa-applet --disable-key-grabbing &
 # load GNOME Authentication Agent so a graphical prompt pops up, helps reduce
 # the use of "sudo" by providing user's password
 /usr/libexec/polkit-gnome-authentication-agent-1 &
+
+# load keyring daemon to handle cryptography stuff
+eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)"
 
 # default to AwesomeWM unless a WM is specified at the command line
 SESSION=${2:-awesome}

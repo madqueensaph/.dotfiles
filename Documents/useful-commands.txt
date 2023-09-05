@@ -16,3 +16,7 @@ sudo modprobe -r rtsx_pci_sdmmc rtsx_pci && sudo modprobe rtsx_pci
 # create a null sink, which can be set up to (for example) split audio between
 # the output device and a capture stream in OBS
 pactl load-module module-null-sink sink_name=SINK_NAME
+
+# create a mono audio sink
+pactl load-module module-remap-sink channels=1 channel-map=mono\
+    sink_name=SINK_NAME device.description="NAME\ HERE"
