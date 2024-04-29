@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -o errexit
+# output commands being run
+set -x
+
+readonly BACK_DIR="$PWD"
+readonly DOWNLOAD_DIR="$HOME/Downloads"
+readonly INSTALL_DIR="$HOME/.bin/.discordcanary"
+readonly CHECKSUM_FILE="$INSTALL_DIR/DiscordCanary.tar.gz.chksum"
+readonly EXECUTABLE_FILE="$INSTALL_DIR/DiscordCanary"
+
+DOWNLOAD_FAIL=0
+
+mkdir -p "$DOWNLOAD_DIR"
+cd "$DOWNLOAD_DIR"
+
+wget 'https://discordapp.com/api/download/canary?platform=linux&format=tar.gz'\
+    -O DiscordCanary.tar.gz || DOWNLOAD_FAIL="$?"
+
+if [ "$DOWNLOAD_FAIL" != 0 ]
+then
+    notify-send 'Failed to download "DiscordCanary.tar.gz"'
+    exit
+fi
+
+# using a checksum to test if we need to actually update it or not
+if [ ! -f "$CHECKSUM_FILE" ] ||
+    [ "$(md5sum ./DiscordCanary.tar.gz)" != "$(cat $CHECKSUM_FILE)" ]
+then
+    wget 'https://github.com/GooseMod/OpenAsar/releases/download/nightly/app.asar' ||
+        DOWNLOAD_FAIL="$?"
+    if [ "$DOWNLOAD_FAIL" != 0 ]
+    then
+        notify-send 'Failed to download "app.asar"'
+        exit
+    fi
+
+    tar -xf ./DiscordCanary.tar.gz
+    cp ./app.asar ./DiscordCanary/resources/app.asar
+    mkdir -p "$INSTALL_DIR"
+    cp -r ./DiscordCanary/* "$INSTALL_DIR"/
+    rm -r ./DiscordCanary ./app.asar
+
+    md5sum ./DiscordCanary.tar.gz > "$CHECKSUM_FILE"
+fi
+
+rm ./DiscordCanary.tar.gz
+
+cd "$BACK_DIR"
+
+command "$EXECUTABLE_FILE"
