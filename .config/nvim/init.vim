@@ -1,6 +1,3 @@
-" Get the defaults that most users want.
-source /usr/share/vim/vim90/defaults.vim
-
 set nobackup		" do not keep a backup file
 
 if has('persistent_undo')
@@ -44,7 +41,7 @@ set mouse=
 
 
 " VimPlug
-call plug#begin('~/.vim/plugged')
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Make sure you use single quotes
 	Plug 'junegunn/seoul256.vim'

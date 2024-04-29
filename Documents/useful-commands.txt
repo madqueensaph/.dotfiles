@@ -20,3 +20,6 @@ pactl load-module module-null-sink sink_name=SINK_NAME
 # create a mono audio sink
 pactl load-module module-remap-sink channels=1 channel-map=mono\
     sink_name=SINK_NAME device.description="NAME\ HERE"
+
+# set [built-in/module] without menuconfig
+/usr/src/linux/scripts/config --[enable/module] MODULE_NAME

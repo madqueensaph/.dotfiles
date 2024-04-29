@@ -4,7 +4,6 @@
 # -------------------
 # root is /home/$USER
 
-vmware
 Games
 Desktop
 Downloads
@@ -12,10 +11,13 @@ Mount
 News
 School
 Videos/Captures
+.SteamGames
+.VirtualMachines
 .android
 .cache
 .config/discord
 .config/discordcanary
+.config/emacs
 .config/Signal
 .emacs.d
 .local/bin/.discordcanary
@@ -26,20 +28,21 @@ Videos/Captures
 .local/include
 .local/lib
 .local/share/applications
+.local/share/ice
 .local/share/nvim/undo
 .local/share/vifm
 .local/share/Steam
+.local/share/SteamGamesMountDir
 .local/share/Trash
 .local/share/vulkan
 .local/share/xorg
 .local/share/zathura
 .local/state
+.mozilla
 .npm
 .steampath
 .steampid
 .steam
+.thunderbird
 .tmp
 .wine
-.SteamGames
-.VirtualBox
-.VirtualMachines

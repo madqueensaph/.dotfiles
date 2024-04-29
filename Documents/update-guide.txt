@@ -14,13 +14,21 @@ eselect kernel set <LATEST>
 
 cd /usr/src/linux
 
-genkernel --kernel-config=/etc/kernels/kernel-config-$(uname -r) all
+cp ../<PREV_KERN>/.config ./.config
+
+make oldconfig
 
 make modules_prepare
 
+make
+
 emerge @module-rebuild
 
-sed -i 's/<OLD-KERNEL-NUM>/<NEW-KERNEL-NUM>/g' /boot/loader/entries/gentoo.conf
+make modules_install
+
+make install
+
+esteam
 
 reboot
 
@@ -34,4 +42,4 @@ eclean-pkg
 
 eclean-kernel -n 1
 
-esteam
+btrfs subvolume snapshot -r / /.snapshots/"$(date +'%Y-%m-%d_%H-%M-%S')"

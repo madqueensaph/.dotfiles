@@ -220,23 +220,56 @@ globalkeys = gears.table.join(
 		function()
 			awful.spawn("playerctl -a stop")
 		end ),
-
-awful.key({ modkey }, "F11",	-- Pause Playing Media
-    function()
-        awful.spawn("playerctl play-pause")
-    end ),
-awful.key({ modkey }, "F12",	-- Go to Next Track in Playing Media
-    function()
-        awful.spawn("playerctl next")
-    end ),
-awful.key({ modkey }, "F10",	-- Go to Previous Track in Playing Media
-    function()
-        awful.spawn("playerctl previous")
-    end ),
-awful.key({ modkey }, "F9",	-- Go to Previous Track in Playing Media
-    function()
-        awful.spawn("playerctl -a stop")
-    end ),
+    awful.key({ modkey }, "F11",	-- Pause Playing Media
+        function()
+            awful.spawn("playerctl play-pause")
+        end ),
+    awful.key({ modkey }, "F12",	-- Go to Next Track in Playing Media
+        function()
+            awful.spawn("playerctl next")
+        end ),
+    awful.key({ modkey }, "F10",	-- Go to Previous Track in Playing Media
+        function()
+            awful.spawn("playerctl previous")
+        end ),
+    awful.key({ modkey }, "F9",	-- Go to Previous Track in Playing Media
+        function()
+            awful.spawn("playerctl -a stop")
+        end ),
+    
+    -- Music Controls
+    awful.key({ modkey, "Control" }, "F11",	-- Pause Playing Media
+        function()
+            awful.spawn("mpc toggle")
+        end ),
+    awful.key({ modkey, "Control" }, "F12",	-- Go to Next Track in Playing Media
+        function()
+            awful.spawn("mpc next")
+        end ),
+    awful.key({ modkey, "Control", "Shift" }, "F12", -- Turn on Single Track mode
+        function()
+            awful.spawn("mpc single")
+        end ),
+    awful.key({ modkey, "Control" }, "F10",	-- Go to Previous Track in Playing Media
+        function()
+            awful.spawn("mpc prev")
+        end ),
+    awful.key({ modkey, "Control" }, "F9",	-- Go to Previous Track in Playing Media
+        function()
+            awful.spawn("mpc stop")
+        end ),
+    awful.key({ modkey, "Control", "Shift" }, "F9",	-- Shuffle Music Playlist
+        function()
+            awful.spawn("mpc shuffle")
+        end ),
+	awful.key({ modkey, "Control" }, "F8",	-- Raise Music Audio by 5%
+		function()
+			awful.spawn("mpc volume +5")
+		end ),
+	awful.key({ modkey, "Control" }, "F7",	-- Lower Music Audio by 5%
+		function()
+			awful.spawn("mpc volume -5")
+		end ),
 
 	-- Other binds I use a lot
 	awful.key({ modkey }, "b",	-- Toggle Main Wibox

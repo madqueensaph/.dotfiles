@@ -7,10 +7,16 @@
 # source files (.c, .h) under "src"
 SRC_DIR		:= src
 BUILD_DIR	:= build_files
+OUTPUT_DIR  := out
 
 # compiler variables
 CC			:= gcc
-CFLAGS		:= -std=c17 -pedantic -Wall -Werror -O3
+CFLAGS		:=  -std=c17\
+				-pedantic\
+				-Wall\
+				-Werror\
+				-g3\
+				-ggdb
 LDLIBS		:= 
 TARGET		:= 
 
