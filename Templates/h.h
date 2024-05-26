@@ -14,4 +14,4 @@
 
 /* type definitions */
 
-/* function declaration */
+/* function declarations */

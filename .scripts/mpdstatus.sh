@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #
-# mpdstatus
+# mpdstatus.sh
 # ---------
 # display status stuff for the Music Player Daemon in a more fancy output
 #
 
-readonly SEPARATOR='\e[1;96m--------------------------------------------------'\
-'--------------------'
+SEPARATOR='\e[1;96m-----------------------------------------------------------'\
+'-----------'
 
 ALBUM_NAME="$(   mpc status |
                 grep 'ogg' |

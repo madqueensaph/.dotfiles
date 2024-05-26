@@ -1,6 +1,6 @@
 /*
-** FILE.c
-** ------
+** FILENAME.c
+** -------------
 ** DESCRIPTION
 */
 
@@ -11,3 +11,5 @@
 /* constants, macros, enums */
 
 /* global variables */
+
+/* function definitions */

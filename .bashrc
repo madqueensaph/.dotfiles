@@ -16,9 +16,10 @@ fi
 # environment variables
 export PATH="${PATH}:${HOME}/.scripts:${HOME}/.bin:${HOME}/.config/emacs/bin"
 export LS_COLORS="di=1;94"
-export XZ_OPT="-9 -T16"
+export XZ_OPT="-9 -T32"
 export GREP_COLORS="ms=01;36"
 export HISTCONTROL=ignoreboth:erasedups
+export TIMEFORMAT="elapsed time: %lR"
 export EDITOR="nvim"
 
 # change colors for 'man'
